@@ -1,0 +1,201 @@
+/* styles/Sidebar.module.css */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  background-color: #f7f7f8;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.dark {
+  background-color: #212121;
+  color: #f1f1f1;
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  height: 60px;
+}
+
+.dark .sidebarHeader {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.headerControls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.themeToggle, .closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #555;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dark .themeToggle, .dark .closeButton {
+  color: #e0e0e0;
+}
+
+.themeToggle:hover, .closeButton:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+.dark .themeToggle:hover, .dark .closeButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.newChatButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px;
+  padding: 12px;
+  background-color: #4285f4;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.newChatButton:hover {
+  background-color: #3367d6;
+}
+
+.newChatButton:active {
+  transform: translateY(1px);
+}
+
+.plusIcon {
+  flex-shrink: 0;
+}
+
+.historyContainer {
+  flex: 1;
+  padding: 0 16px 16px;
+  overflow-y: auto;
+}
+
+.historyContainer h3 {
+  margin: 16px 0 12px;
+  font-size: 13px;
+  color: #666;
+  opacity: 0.9;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+
+.dark .historyContainer h3 {
+  color: #aaa;
+}
+
+.chatList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chatItem {
+  padding: 12px 10px;
+  margin-bottom: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatItem:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .chatItem:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.chatItem span {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatItem small {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+.toggleButton {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 99;
+  width: 40px;
+  height: 40px;
+  background-color: #4285f4;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.toggleButton:hover {
+  background-color: #3367d6;
+}
+
+.toggleButton:active {
+  transform: scale(0.95);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    max-width: 280px;
+  }
+}

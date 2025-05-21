@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  min-height: 100vh;
+  transition: all var(--transition-speed);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
