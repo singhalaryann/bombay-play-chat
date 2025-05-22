@@ -1,4 +1,5 @@
-/* components/ChatInterface.module.css */
+/* Simple Clean ChatInterface.module.css */
+
 .chatInterface {
   flex: 1;
   display: flex;
@@ -17,7 +18,7 @@
   flex: 1;
   overflow-y: auto;
   scroll-behavior: smooth;
-  padding-bottom: 100px; /* Make space for the input container */
+  padding-bottom: 100px;
 }
 
 .messagesContainer {
@@ -33,7 +34,7 @@
   right: 0;
   background-color: var(--background-color, #ffffff);
   border-top: 1px solid var(--border-color, #e0e0e0);
-  padding: 12px 20px;
+  padding: 16px 20px;
   z-index: 10;
   transform: translateX(0);
   transition: transform var(--transition-speed, 0.3s ease);
@@ -46,12 +47,12 @@
   width: calc(100% - var(--sidebar-width, 280px));
 }
 
+/* File Preview */
 .filePreviewContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 8px 0;
-  margin-bottom: 8px;
+  padding: 0 0 12px 0;
 }
 
 .filePreview {
@@ -59,14 +60,14 @@
   align-items: center;
   background-color: var(--secondary-background, #f5f5f7);
   border: 1px solid var(--border-color, #e0e0e0);
-  border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 12px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
 }
 
-.dark .filePreview {
-  background-color: var(--secondary-background, #2c2c2e);
-  border-color: var(--border-color, #3a3a3c);
+.filePreview:hover {
+  background-color: var(--border-color, #e8e8e8);
 }
 
 .fileName {
@@ -74,30 +75,30 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: var(--text-color, #333333);
 }
 
 .removeFileBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 6px;
+  margin-left: 8px;
   background: none;
   border: none;
-  color: var(--text-color, #333333);
+  color: #666666;
   cursor: pointer;
   font-size: 16px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.dark .removeFileBtn {
-  color: var(--text-color, #e0e0e0);
+  padding: 2px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
 .removeFileBtn:hover {
-  opacity: 1;
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
 }
 
+/* Input Form */
 .inputForm {
   display: flex;
   align-items: flex-end;
@@ -105,51 +106,46 @@
   border-radius: 12px;
   padding: 8px 12px;
   border: 1px solid var(--border-color, #e0e0e0);
-  transition: border-color 0.2s;
+  transition: border-color 0.2s ease;
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
-}
-
-.dark .inputForm {
-  background-color: var(--secondary-background, #2c2c2e);
-  border-color: var(--border-color, #3a3a3c);
 }
 
 .inputForm:focus-within {
   border-color: var(--primary-color, #007aff);
 }
 
+/* File Button */
 .fileButton {
   display: flex;
   align-items: center;
   justify-content: center;
   background: none;
   border: none;
-  color: var(--text-color, #666666);
+  color: #666666;
   cursor: pointer;
   padding: 8px;
   margin-right: 4px;
-  border-radius: 50%;
-  transition: background-color 0.2s;
-}
-
-.dark .fileButton {
-  color: var(--text-color, #cccccc);
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
 .fileButton:hover {
   background-color: rgba(0, 0, 0, 0.05);
+  color: var(--primary-color, #007aff);
 }
 
-.dark .fileButton:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.fileButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .fileIcon {
   font-size: 18px;
 }
 
+/* Chat Input */
 .chatInput {
   flex: 1;
   padding: 8px 4px;
@@ -160,20 +156,17 @@
   line-height: 1.5;
   resize: none;
   outline: none;
-  max-height: 150px;
+  max-height: 120px;
   overflow-y: auto;
   font-family: inherit;
 }
 
-.dark .chatInput {
-  color: var(--text-color, #e0e0e0);
-}
-
 .chatInput::placeholder {
-  color: var(--text-color, #999999);
+  color: #999999;
   opacity: 0.8;
 }
 
+/* Send Button */
 .sendButton {
   display: flex;
   align-items: center;
@@ -181,25 +174,25 @@
   border: none;
   background-color: var(--primary-color, #007aff);
   color: white;
-  border-radius: 50%;
+  border-radius: 8px;
   width: 36px;
   height: 36px;
   margin-left: 8px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  transition: all 0.2s ease;
 }
 
 .sendButton:hover {
-  background-color: var(--primary-hover, #0066cc);
-  transform: scale(1.05);
+  background-color: #0066cc;
+  transform: translateY(-1px);
 }
 
 .sendButton:active {
-  transform: scale(0.95);
+  transform: translateY(0);
 }
 
 .sendButton.disabled {
-  background-color: var(--border-color, #cccccc);
+  background-color: #cccccc;
   cursor: not-allowed;
   transform: none;
 }
@@ -208,11 +201,15 @@
   font-size: 16px;
 }
 
+/* Typing Indicator */
 .typingIndicator {
   display: flex;
-  padding: 10px;
+  padding: 12px 16px;
   margin: 10px 0;
   align-items: center;
+  background-color: var(--secondary-background, #f5f5f7);
+  border-radius: 12px;
+  width: fit-content;
 }
 
 .typingIndicator span {
@@ -223,23 +220,77 @@
   display: inline-block;
   margin: 0 2px;
   opacity: 0.6;
-  animation: bounce 1.5s infinite ease-in-out;
+  animation: bounce 1.4s infinite ease-in-out;
 }
 
 .typingIndicator span:nth-child(2) {
-  animation-delay: 0.2s;
+  animation-delay: 0.16s;
 }
 
 .typingIndicator span:nth-child(3) {
-  animation-delay: 0.4s;
+  animation-delay: 0.32s;
 }
 
 @keyframes bounce {
-  0%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-6px); }
+  0%, 80%, 100% { 
+    transform: translateY(0); 
+    opacity: 0.6;
+  }
+  40% { 
+    transform: translateY(-6px); 
+    opacity: 1;
+  }
 }
 
-/* Responsive adjustments */
+/* Dark Mode Support */
+:global(.dark-theme) .chatInterface {
+  background-color: var(--background-color, #1c1c1e);
+}
+
+:global(.dark-theme) .inputContainer {
+  background-color: var(--background-color, #1c1c1e);
+  border-top-color: var(--border-color, #3a3a3c);
+}
+
+:global(.dark-theme) .filePreview {
+  background-color: var(--secondary-background, #2c2c2e);
+  border-color: var(--border-color, #3a3a3c);
+}
+
+:global(.dark-theme) .fileName {
+  color: var(--text-color, #e0e0e0);
+}
+
+:global(.dark-theme) .removeFileBtn {
+  color: #999999;
+}
+
+:global(.dark-theme) .inputForm {
+  background-color: var(--secondary-background, #2c2c2e);
+  border-color: var(--border-color, #3a3a3c);
+}
+
+:global(.dark-theme) .fileButton {
+  color: #cccccc;
+}
+
+:global(.dark-theme) .fileButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-theme) .chatInput {
+  color: var(--text-color, #e0e0e0);
+}
+
+:global(.dark-theme) .chatInput::placeholder {
+  color: #666666;
+}
+
+:global(.dark-theme) .typingIndicator {
+  background-color: var(--secondary-background, #2c2c2e);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .chatInterface.sidebarOpen {
     margin-left: 0;
@@ -248,5 +299,36 @@
   .sidebarOpen .inputContainer {
     transform: translateX(0);
     width: 100%;
+  }
+  
+  .messagesContainer {
+    padding: 16px;
+  }
+  
+  .inputContainer {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inputForm {
+    padding: 6px 8px;
+  }
+  
+  .fileButton {
+    padding: 6px;
+  }
+  
+  .chatInput {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .sendButton {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .sendIcon {
+    font-size: 14px;
   }
 }

@@ -1,4 +1,5 @@
-/* components/WelcomeScreen.module.css */
+/* Simple WelcomeScreen.module.css */
+
 .welcomeScreen {
   display: flex;
   flex-direction: column;
@@ -7,19 +8,19 @@
   height: 100%;
   width: 100%;
   text-align: center;
-  margin: 0 auto;
-  padding: 0 20px;
+  padding: 2rem;
+  background-color: var(--background-color, #ffffff);
 }
 
 .welcomeScreen.dark {
-  color: var(--text-color, #e0e0e0);
+  background-color: var(--background-color, #1c1c1e);
 }
 
 .welcomeText {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  margin-bottom: 60px;
+  transition: all 0.6s ease-out;
+  max-width: 600px;
 }
 
 .welcomeText.visible {
@@ -28,78 +29,39 @@
 }
 
 .welcomeText h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: var(--text-color, #333333);
-  margin-bottom: 8px;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .dark .welcomeText h1 {
   color: var(--text-color, #e0e0e0);
 }
 
-.suggestionsContainer {
-  width: 100%;
-  max-width: 600px;
-  animation: fadeIn 0.5s ease-in-out;
+.welcomeText p {
+  font-size: 1.2rem;
+  color: #666666;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.suggestions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
-  width: 100%;
+.dark .welcomeText p {
+  color: #a0a0a0;
 }
 
-.suggestionButton {
-  padding: 14px 16px;
-  background-color: var(--secondary-background, #f5f5f7);
-  border: 1px solid var(--border-color, #e0e0e0);
-  border-radius: 8px;
-  text-align: left;
-  font-size: 14px;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-  color: var(--text-color, #333333);
-  opacity: 0;
-  animation: slideInUp 0.5s forwards;
-  cursor: pointer;
-}
-
-.dark .suggestionButton {
-  background-color: var(--secondary-background, #2c2c2e);
-  border-color: var(--border-color, #3a3a3c);
-  color: var(--text-color, #e0e0e0);
-}
-
-.suggestionButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary-color, #007aff);
-}
-
-.dark .suggestionButton:hover {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideInUp {
-  from { 
-    opacity: 0;
-    transform: translateY(20px);
+/* Responsive */
+@media (max-width: 768px) {
+  .welcomeText h1 {
+    font-size: 2rem;
   }
-  to { 
-    opacity: 1;
-    transform: translateY(0);
+  
+  .welcomeText p {
+    font-size: 1.1rem;
   }
-}
-
-/* Center the welcome screen vertically */
-@media (min-height: 700px) {
+  
   .welcomeScreen {
-    padding-bottom: 10vh;
+    padding: 1rem;
   }
 }

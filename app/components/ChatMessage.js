@@ -1,8 +1,8 @@
 // components/ChatMessage.js
 import styles from '../../styles/ChatMessage.module.css';
-import { BsFileEarmark } from 'react-icons/bs';
+import { BsFileEarmark, BsExclamationTriangle } from 'react-icons/bs';
 
-export default function ChatMessage({ role, content, files = [], darkMode }) {
+export default function ChatMessage({ role, content, files = [], images = [], darkMode, error = false }) {
   // Format file size
   const formatFileSize = (bytes) => {
     if (bytes === 0) return '0 Bytes';
@@ -14,10 +14,10 @@ export default function ChatMessage({ role, content, files = [], darkMode }) {
 
   return (
     <div className={`${styles.messageContainer} ${styles[role]}`}>
-      <div className={`${styles.message} ${darkMode ? styles.dark : ''}`}>
+      <div className={`${styles.message} ${darkMode ? styles.dark : ''} ${error ? styles.error : ''}`}>
         {role === 'assistant' && (
           <div className={styles.avatar}>
-            <span>XG</span>
+            {error ? <BsExclamationTriangle /> : <span>XG</span>}
           </div>
         )}
         
@@ -42,6 +42,25 @@ export default function ChatMessage({ role, content, files = [], darkMode }) {
                     <div className={styles.fileName}>{file.name}</div>
                     <div className={styles.fileSize}>{formatFileSize(file.size)}</div>
                   </div>
+                </div>
+              ))}
+            </div>
+          )}
+          
+          {/* NEW: Display images from AI responses */}
+          {images && images.length > 0 && (
+            <div className={styles.imagesContainer}>
+              {images.map((imageSrc, index) => (
+                <div key={index} className={styles.imageWrapper}>
+                  <img
+                    src={imageSrc}
+                    alt={`Generated chart ${index + 1}`}
+                    className={styles.messageImage}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      console.error('Failed to load image:', imageSrc);
+                    }}
+                  />
                 </div>
               ))}
             </div>
