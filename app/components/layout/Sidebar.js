@@ -35,9 +35,10 @@ export default function Sidebar({ isOpen, toggleSidebar, darkMode, toggleTheme }
             <Image
               src="/X-gaming-logo.png"
               alt="X-Gaming Logo"
-              width={100}
-              height={100}
+              width={70}
+              height={70}
               className={styles.logo}
+              priority
             />
           </div>
           

@@ -50,14 +50,8 @@
 }
 
 .logo {
-  width: 70px;
-  height: 70px;
-  background: url('/X-gaming-logo.png') no-repeat center center;
-  background-size: contain;
-  cursor: pointer;
+  object-fit: contain;
   transition: transform 0.2s ease;
-  flex-shrink: 0;
-  filter: brightness(0) invert(1);
 }
 
 .logo:hover {
