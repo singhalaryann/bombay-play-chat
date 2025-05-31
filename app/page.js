@@ -6,7 +6,7 @@ import Sidebar from './components/layout/Sidebar';
 import ChatInterface from './components/ChatInterface';
 
 export default function Home() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
   
   // Toggle sidebar

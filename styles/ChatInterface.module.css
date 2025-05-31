@@ -292,21 +292,21 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .chatInterface {
+    margin-left: 0;
+  }
+  
   .chatInterface.sidebarOpen {
     margin-left: 0;
   }
   
-  .sidebarOpen .inputContainer {
-    transform: translateX(0);
+  .inputContainer {
+    padding: 12px 16px;
     width: 100%;
   }
   
   .messagesContainer {
     padding: 16px;
-  }
-  
-  .inputContainer {
-    padding: 12px 16px;
   }
 }
 
