@@ -50,8 +50,14 @@
 }
 
 .logo {
-  object-fit: contain;
+  width: 70px;
+  height: 70px;
+  background: url('/X-gaming-logo.png') no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
   transition: transform 0.2s ease;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
 }
 
 .logo:hover {
@@ -258,23 +264,23 @@
     width: 100%;
     max-width: 280px;
   }
-  
+
   .sidebarHeader {
     padding: 10px 12px;
     min-height: 55px;
   }
-  
+
   .logo {
     width: 60px;
     height: 60px;
   }
-  
+
   .newChatButton {
     margin: 12px;
     padding: 10px 14px;
     font-size: 13px;
   }
-  
+
   .historyContainer {
     padding: 0 12px 12px;
   }
@@ -285,13 +291,13 @@
     width: 50px;
     height: 50px;
   }
-  
+
   .themeToggle, 
   .closeButton {
     width: 28px;
     height: 28px;
   }
-  
+
   .toggleButton {
     width: 36px;
     height: 36px;
@@ -319,7 +325,7 @@
   .logo {
     transition: none;
   }
-  
+
   .themeToggle:hover,
   .closeButton:hover,
   .newChatButton:hover,

@@ -31,13 +31,13 @@
 .welcomeText h1 {
   font-size: 2.5rem;
   font-weight: 600;
-  color: var(--text-color, #333333);
+  color: var(--primary-color, #00ff88);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .dark .welcomeText h1 {
-  color: var(--text-color, #e0e0e0);
+  color: var(--primary-color, #00ff88);
 }
 
 .welcomeText p {
