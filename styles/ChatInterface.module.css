@@ -159,9 +159,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  background-color: var(--primary-color, #007aff);
-  color: white;
+  border: 2px solid var(--primary-color, #00ff88);
+  background-color: white;
+  color: var(--primary-color, #00ff88);
   border-radius: 8px;
   width: 36px;
   height: 36px;
@@ -171,7 +171,8 @@
 }
 
 .sendButton:hover {
-  background-color: #00dd77;
+  background-color: var(--primary-color, #00ff88);
+  color: white;
   transform: translateY(-1px);
 }
 
@@ -180,9 +181,28 @@
 }
 
 .sendButton.disabled {
-  background-color: #cccccc;
+  background-color: #f5f5f5;
+  border-color: #cccccc;
+  color: #cccccc;
   cursor: not-allowed;
   transform: none;
+}
+
+:global(.dark-theme) .sendButton {
+  background-color: var(--background-color, #0a0a0a);
+  color: var(--primary-color, #00ff88);
+  border-color: var(--primary-color, #00ff88);
+}
+
+:global(.dark-theme) .sendButton:hover {
+  background-color: var(--primary-color, #00ff88);
+  color: var(--background-color, #0a0a0a);
+}
+
+:global(.dark-theme) .sendButton.disabled {
+  background-color: var(--secondary-background, #1a1a1a);
+  border-color: #3a3a3a;
+  color: #666666;
 }
 
 .sendIcon {
