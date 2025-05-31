@@ -7,7 +7,7 @@ import ChatInterface from './components/ChatInterface';
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   
   // Toggle sidebar
   const toggleSidebar = () => {
@@ -24,6 +24,11 @@ export default function Home() {
   useEffect(() => {
     document.body.className = darkMode ? 'dark-theme' : '';
   }, [darkMode]);
+
+  // Set dark theme on initial load
+  useEffect(() => {
+    document.body.className = 'dark-theme';
+  }, []);
 
   return (
     <main className={`${styles.main} ${darkMode ? styles.dark : ''}`}>
