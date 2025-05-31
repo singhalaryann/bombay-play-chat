@@ -29,6 +29,15 @@ export default function Sidebar({ isOpen, toggleSidebar, darkMode, toggleTheme }
         </button>
       )}
       
+      {/* Overlay that closes sidebar when clicked */}
+      {isOpen && (
+        <div 
+          className={styles.overlay}
+          onClick={toggleSidebar}
+          aria-label="Close sidebar"
+        />
+      )}
+      
       <div className={`${styles.sidebar} ${isOpen ? styles.open : ''} ${darkMode ? styles.dark : ''}`}>
         <div className={styles.sidebarHeader}>
           <div className={styles.logoContainer}>
